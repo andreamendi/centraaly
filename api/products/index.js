@@ -1,6 +1,9 @@
 const express = require('express');
 const productsRouter = express.Router(); //Para crear subrutas con Express
 
+productsRouter.use(express.json());
+
+
 //Midlewares
 const getProducts = require('./getProducts')
 const getSingleProduct = require('./getSingleProduct')

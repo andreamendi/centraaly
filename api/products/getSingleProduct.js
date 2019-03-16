@@ -3,7 +3,7 @@ const products = require('../../db.js')
 function getSingleProducts (req, res){
     //Accedemos al id que viene en el req
     const productId = req.params.id;
-
+    // ----------'FOR'-----------
     //Se busca el id del req en la lista de ITEMS 
     // for(let item of products.items){
     //     if (item.id == productId){
@@ -11,7 +11,7 @@ function getSingleProducts (req, res){
     //     }
     // }
 
-    // Otra forma pero usando 'filter'
+    // ----------'FILTER'-----------
     // const requestedProduct = products.items.filter(function(item){
     //     return item.id == productId;
     // })
