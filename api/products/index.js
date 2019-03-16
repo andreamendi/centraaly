@@ -18,9 +18,13 @@ const putProducts = require('./putProducts')
 
 productsRouter.get('/', getProducts);
 productsRouter.get('/:id', getSingleProduct);
+
 productsRouter.post('/', postProducts);
-productsRouter.delete('/', deleteProducts);
-productsRouter.put('/', putProducts);
+
+productsRouter.delete('/:id', deleteProducts);
+
+productsRouter.put('/:id', putProducts); //Edita
+
 
 
 module.exports = productsRouter;
