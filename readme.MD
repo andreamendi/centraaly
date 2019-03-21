@@ -11,7 +11,7 @@ bash
 
 NPM 
 [x] -> *important*
-> [x]Express
-> [x]Mongoose
-> [x]Nodemon
-> []Chalk
+> -[x]Express 
+> -[x]Mongoose
+> -[x]Nodemon
+> -[]Chalk
