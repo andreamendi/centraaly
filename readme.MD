@@ -8,3 +8,10 @@ For run this project in your computer, you'll need **node**  install and run the
 bash 
  $ npm install
  ```
+
+NPM 
+[x] -> *important*
+> [x]Express
+> [x]Mongoose
+> [x]Nodemon
+> []Chalk

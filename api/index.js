@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router(); //Para manejar las rutas
 const products = require('./products');
+var password = process.env.CREDENTIAL;
+
 
 // '.all' <- cualquier petición de cualquier tipo vas a ejecutar esta ruta.
 router.all('/', function(req, res){
@@ -9,8 +11,8 @@ router.all('/', function(req, res){
     });
 });
 
-// '.use' es para otra
-router.use('/products', products);
+// '.use' es para otra ruta
+router.use('/products', products); 
 
 
 module.exports = router;
