@@ -2,19 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema; //Cunado usamos "MAYUS", nos estamos refiriendo a una clase, es una función que puede crear objetos específicos.
 
 var product = new Schema({
-    nombre: String,
-    tipo: String,
-    precio: Number,
-    talla: Array,
-    color: Array,
-    stock: {
-        amazonMx: Number,
-        amazonUs: Number,
-        amazonCa: Number,
-        amazonCo: Number,
-        amazonEs: Number,
-        amazonUk: Number 
-    }
+    
 });
 
 product.method.description = function(){

@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router(); //Para manejar las rutas
 const products = require('./products');
-var password = process.env.CREDENTIAL;
 
 
 // '.all' <- cualquier petición de cualquier tipo vas a ejecutar esta ruta.

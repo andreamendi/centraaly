@@ -1,24 +1,50 @@
-const products = require('../../db.js');
-const productSchema = require('./model');
+//POST -> Crear
+const Product = require('../models/product');
 const mongoose = require('mongoose');
-
-var Product = mongoose.model('Product', productSchema);
 
 function postProductos(req, res){
 
-    var product = new Product(req.body);
-    //Los de abajo se comentan ya que no sirven con mongoose
-    // const newItem = req.body;
-    // newItem.id = products.items.length + 1;
-    // products.items.push(newItem);
+    const newProduct = new Product({
 
-    product.save(function(err, product){
-        if(err){
-            res.send(err).status(400);
+        _id: new mongoose.Types.ObjectId(),
+        nombre: req.body.nombre,
+        tipo: req.body.tipo,
+        precio: req.body.precio,
+        talla: req.body.talla,
+        color: req.body.color,
+        stock: {
+            amazonMx: req.body.amazonMx,
+            amazonUs: req.body.amazonUs,
+            amazonCa: req.body.amazonCa,
+            amazonCo: req.body.amazonCo,
+            amazonEs: req.body.amazonEs,
+            amazonUk: req.body.amazonUk 
         }
-        res.send(product).status(201);
     });
-    // res.send(newItem).status(201);
+    newProduct.save()
+        .then(result => {
+            res.status(201).json({
+                message: "¡Yaay! Ya se posteo un nuevo producto en Centraaly",
+                nuevoProducto: newProduct
+            })
+        })
+        .catch(err => {
+            res.status(500).json({
+                error: err
+            })
+        })
 }
 
 module.exports = postProductos;
+
+
+
+
+   //Los de abajo se comentan ya que no sirven con mongoose
+    // const newItem = req.body;
+    // newItem.id = products.items.length + 1;
+    // products.items.push(newItem);
+    // product.save(function(err, product){
+    //     if(err) res.send(err).status(400);
+    //     res.send(product).status(201);
+    // });

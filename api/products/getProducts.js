@@ -1,7 +1,6 @@
 const products = require('../../db.js');
 var productSchema = require('./model');
 const mongoose = require('mongoose');
-var Product = mongoose.model('Product', productSchema);
 
 function getProducts (req, res){
     Product.find({}, 'nombre', function(err,products){

@@ -14,9 +14,10 @@ mongoose.connect(process.env.MONGO_ALTAS)
     .catch(err => {
         console.log(err).status(500)
     })
-    
 
-//Levantar o escuchar peticiones en un puerto.
+
+//Levantar o escuchar peticiones en un puerto. 
+//Escuchamos las peticiones del puerto
 app.listen(port /*8080*/, () => {
     console.log(`Escuchando por el puerto ${port}`);
     console.log(chalk.cyanBright(`http://localhost:${port}`));

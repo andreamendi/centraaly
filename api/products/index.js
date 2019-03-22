@@ -16,15 +16,11 @@ const putProducts = require('./putProducts')
 // *'/'* <- es cuando llaman a la carpeta en la que estoy.
 
 
-productsRouter.get('/', getProducts);
-productsRouter.get('/:id', getSingleProduct);
-
-productsRouter.post('/', postProducts);
-
-productsRouter.delete('/:id', deleteProducts);
-
+productsRouter.get('/', getProducts); //trae todo
+productsRouter.get('/:id', getSingleProduct); //Solo trae UNO
+productsRouter.post('/', postProducts); //UpLoad
+productsRouter.delete('/:id', deleteProducts); //Borra
 productsRouter.put('/:id', putProducts); //Edita
-
 
 
 module.exports = productsRouter;
