@@ -1,18 +1,37 @@
-const products =require('../../db');
+//edit es put
+const Product = require('../models/product');
 
 function putProducts(req, res){
     const productId = req.params.id;
-    const newProduct = req.body;
-    const itemsList = products.items;
 
-    for(let key in itemsList){
-        if (itemsList[key].id == productId){
-            newProduct.id = itemsList[key].id;
-            itemsList[key] = newProduct;
-            res.send(newProduct).status(202);
+    Product.update({_id: req.params.id}, {
+        $set : {
+            nombre: req.body.nombre,
+            tipo: req.body.tipo,
+            precio: req.body.precio,
+            talla: req.body.talla,
+            color: req.body.color,
+            stock: {
+                amazonMx: req.body.amazonMx,
+                amazonUs: req.body.amazonUs,
+                amazonCa: req.body.amazonCa,
+                amazonCo: req.body.amazonCo,
+                amazonEs: req.body.amazonEs,
+                amazonUk: req.body.amazonUk
+            }
         }
-    }
-    res.send(`No existe el id: ${productId}`).status(404);
+    })
+        .then(result => {
+            res.tatus(200).json({
+                message: 'Se cambió sin problemas el elemento, súper'
+            })
+        })
+        .catch(err => {
+            res.status(500).json({
+                error: err
+            })
+        })
+    
 }
 
 module.exports = putProducts;
