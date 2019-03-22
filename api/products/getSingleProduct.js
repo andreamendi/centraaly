@@ -8,7 +8,7 @@ function getSingleProducts (req, res){
                 res.status(200).json(doc);
             } else {
                 res.staurs(400).json({
-                    message: `Sorry, pero el ${req.params.id} que buscas no existe`
+                    message: `Sorry, pero el id que buscas no existe`
                 })
             }
         })
