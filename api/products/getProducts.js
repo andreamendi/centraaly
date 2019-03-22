@@ -1,15 +1,31 @@
-const products = require('../../db.js');
-var productSchema = require('./model');
-const mongoose = require('mongoose');
+const Product = require('../models/product');
+
+
 
 function getProducts (req, res){
-    Product.find({}, 'nombre', function(err,products){
-        if(err){
-            res.send(err).status(400);
-        }
-        res.send(products).status(200);
+    Product.find()
+    .then(docs => {
+        res.status(200).json(docs);
     })
-    // res.json(products);    
+    .catch(err => {
+        err.status(500).json({
+            error: err
+        })
+    })
 }
+    
 
 module.exports = getProducts;
+
+
+// function getProducts (req, res){
+//     Product.find({}, 'nombre', function(err,products){
+//         if(err){
+//             res.send(err).status(400);
+//         }
+//         res.send(products).status(200);
+//     })
+//     // res.json(products);    
+// }
+
+
