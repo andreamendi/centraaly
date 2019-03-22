@@ -14,4 +14,4 @@ NPM
 > [x]Express <br />
 > [x]Mongoose <br />
 > [x]Nodemon <br />
-> []Chalk 
+> [__]Chalk 
