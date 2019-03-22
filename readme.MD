@@ -10,8 +10,8 @@ bash
  ```
 
 NPM 
-[x] -> *important*
-> [x]Express 
-> [x]Mongoose
-> [x]Nodemon
-> []Chalk
+[x] -> *important* <br />
+> [x]Express <br />
+> [x]Mongoose <br />
+> [x]Nodemon <br />
+> []Chalk 

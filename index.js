@@ -5,8 +5,7 @@ const chalk = require('chalk');
 const port = 8080; //Se está declarando el puerto por el que vamos a trabajar.
 const mongoose = require('mongoose');
 
-var dbUrl = process.env.ATLAS_DB;
-mongoose.connect(dbUrl);
+mongoose.connect(process.env.MONGO_ALTAS); //Mongo Altlas es una variable de entorno virtual que tiene la ruta para conectarse a MongoDB
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
